@@ -47,22 +47,22 @@ namespace GuysGroupAz.DAL.Repositories.Concretes
 
         public async Task<List<T>> GetAllAsync()
         {
-            return await _context.Set<T>().AsNoTracking().ToListAsync();
+            return await _context.Set<T>().Where(x => x.DeletedAt == null).AsNoTracking().ToListAsync();
         }
 
         public List<T> GetAll()
         {
-            return _context.Set<T>().AsNoTracking().ToList();
+            return _context.Set<T>().Where(x => x.DeletedAt == null).AsNoTracking().ToList();
         }
 
         public async Task<T> GetByIdAsync(int id)
         {
-            return await _context.Set<T>().FindAsync(id);
+            return await _context.Set<T>().Where(x => x.DeletedAt == null).FirstOrDefaultAsync(x => x.Id == id);
         }
-
+            
         public T GetById(int id)
         {
-            return _context.Set<T>().Find(id);
+            return _context.Set<T>().Where(x => x.DeletedAt == null).FirstOrDefault(x => x.Id == id);
         }
 
         public void Update(T entity)
