@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GuysGroupAz.DAL.Repositories.Abstracts
 {
-    public interface IAboutRepository : IGenericRepository<About>
+    public interface ISubscribeRepository : IGenericRepository<Subscribe>
     {
     }
 }
