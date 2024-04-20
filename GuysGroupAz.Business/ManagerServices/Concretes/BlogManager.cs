@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace GuysGroupAz.Business.ManagerServices.Concretes
 {
-    public class BlogManager : BaseManager<Blog>, IBlogImageService
+    public class BlogManager : BaseManager<Blog>, IBlogService
     {
         readonly IBlogRepository _repository;
         public BlogManager(IBlogRepository blogRepository) : base(blogRepository)

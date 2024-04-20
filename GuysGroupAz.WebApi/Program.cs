@@ -1,4 +1,5 @@
 using GuysGroupAz.Business.DependecyResolvers;
+using GuysGroupAz.Entity.Mappers;
 
 namespace GuysGroupAz.WebApi
 {
@@ -20,6 +21,9 @@ namespace GuysGroupAz.WebApi
                 {
                     options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
                 });
+
+            builder.Services.AddAutoMapper(typeof(MapProfile));
+            builder.Services.AddValidations();
             
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();

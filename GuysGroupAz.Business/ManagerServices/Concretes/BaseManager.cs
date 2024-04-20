@@ -1,6 +1,7 @@
 ﻿using GuysGroupAz.Business.ManagerServices.Abstracts;
 using GuysGroupAz.DAL.Repositories.Abstracts;
 using GuysGroupAz.Entity.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,7 +37,7 @@ namespace GuysGroupAz.Business.ManagerServices.Concretes
 
         public void Delete(T entity)
         {
-            var result = _repository.Find(entity.Id);
+            var result = _repository.GetByIdAsync(entity.Id);
             if (result != null)
             {
                 _repository.Delete(entity);
@@ -45,10 +46,10 @@ namespace GuysGroupAz.Business.ManagerServices.Concretes
 
         public void Destroy(T entity)
         {
-            var result = _repository.Find(entity.Id);
+            var result = _repository.GetByIdAsync(entity.Id);
             if (result != null)
             {
-                _repository.Delete(entity);
+                _repository.Destroy(entity);
             }
         }
 
@@ -66,6 +67,10 @@ namespace GuysGroupAz.Business.ManagerServices.Concretes
         public async Task<T> GetByIdAsync(int id)
         {
             return await _repository.GetByIdAsync(id);
+        }
+        public async Task<T> GetByIdWithDeletedAsync(int id)
+        {
+            return await _repository.GetByIdWithDeletedAsync(id);
         }
 
         public void Update(T entity)

@@ -35,8 +35,12 @@ namespace GuysGroupAz.DAL.Repositories.Concretes
 
         public void Delete(T entity)
         {
-            entity.DeletedAt = DateTime.Now;
-            _context.SaveChanges();
+            var model = _context.Set<T>().Find(entity.Id);
+            if (model != null)
+            {
+                model.DeletedAt = DateTime.Now;
+                _context.SaveChanges();
+            }
         }
 
         public void Destroy(T entity)
@@ -57,12 +61,17 @@ namespace GuysGroupAz.DAL.Repositories.Concretes
 
         public async Task<T> GetByIdAsync(int id)
         {
-            return await _context.Set<T>().Where(x => x.DeletedAt == null).FirstOrDefaultAsync(x => x.Id == id);
+            return await _context.Set<T>().Where(x => x.DeletedAt == null).AsNoTracking().FirstOrDefaultAsync(x => x.Id == id);
         }
-            
+
+        public async Task<T> GetByIdWithDeletedAsync(int id)
+        {
+            return await _context.Set<T>().AsNoTracking().FirstOrDefaultAsync(x => x.Id == id);
+        }
+
         public T GetById(int id)
         {
-            return _context.Set<T>().Where(x => x.DeletedAt == null).FirstOrDefault(x => x.Id == id);
+            return _context.Set<T>().Where(x => x.DeletedAt == null).AsNoTracking().FirstOrDefault(x => x.Id == id);
         }
 
         public void Update(T entity)

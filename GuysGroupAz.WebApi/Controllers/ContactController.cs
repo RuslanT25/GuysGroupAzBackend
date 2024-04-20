@@ -26,7 +26,7 @@ namespace GuysGroupAz.WebApi.Controllers
         public async Task<IActionResult> GetAllAsync()
         {
             var models = await _contactService.GetAllAsync();
-            var contacts = _mapper.Map<ContactGetDTO>(models);
+            var contacts = _mapper.Map<List<ContactGetDTO>>(models);
             if (contacts is null)
             {
                 return NotFound();
@@ -66,7 +66,7 @@ namespace GuysGroupAz.WebApi.Controllers
             return Ok(contact);
         }
 
-        [HttpPut("update/{id}")]
+        [HttpPut("update")]
         public async Task<IActionResult> Update([FromForm] ContactGetDTO model)
         {
             var contact = await _contactService.GetByIdAsync(model.Id);
@@ -86,7 +86,7 @@ namespace GuysGroupAz.WebApi.Controllers
             return NoContent();
         }
 
-        [HttpPut("delete/{id}")]
+        [HttpDelete("delete/{id}")]
         public async Task<IActionResult> Delete(int id)
         {
             var contact = await _contactService.GetByIdAsync(id);
@@ -102,7 +102,7 @@ namespace GuysGroupAz.WebApi.Controllers
         [HttpDelete("destroy/{id}")]
         public async Task<IActionResult> Destroy(int id)
         {
-            var contact = await _contactService.GetByIdAsync(id);
+            var contact = await _contactService.GetByIdWithDeletedAsync(id);
             if (contact is null)
             {
                 return NotFound();

@@ -15,53 +15,53 @@ namespace GuysGroupAz.Business.DependecyResolvers
     {
         public static IServiceCollection AddBusinessModule(this IServiceCollection services)
         {
-            services.AddSingleton<IAboutService, AboutManager>();
-            services.AddSingleton<IAboutRepository, AboutRepository>();
+            services.AddScoped<IAboutService, AboutManager>();
+            services.AddScoped<IAboutRepository, AboutRepository>();
 
-            services.AddSingleton<IBlogImageService, BlogImageManager>();
-            services.AddSingleton<IBlogImageRepository, BlogImageRepository>();
+            services.AddScoped<IBlogImageService, BlogImageManager>();
+            services.AddScoped<IBlogImageRepository, BlogImageRepository>();
 
-            services.AddSingleton<IBlogImageService, BlogManager>();
-            services.AddSingleton<IBlogRepository, BlogRepository>();
+            services.AddScoped<IBlogService, BlogManager>();
+            services.AddScoped<IBlogRepository, BlogRepository>();
 
-            services.AddSingleton<IContactService, ContactManager>();
-            services.AddSingleton<IContactRepository, ContactRepository>();
+            services.AddScoped<IContactService, ContactManager>();
+            services.AddScoped<IContactRepository, ContactRepository>();
 
-            services.AddSingleton<ICourseService, CourseManager>();
-            services.AddSingleton<ICourseRepository, CourseRepository>();
+            services.AddScoped<ICourseService, CourseManager>();
+            services.AddScoped<ICourseRepository, CourseRepository>();
 
-            services.AddSingleton<IGeneralInfoService, GeneralInfoManager>();
-            services.AddSingleton<IGeneralInfoRepository, GeneralInfoRepository>();
+            services.AddScoped<IGeneralInfoService, GeneralInfoManager>();
+            services.AddScoped<IGeneralInfoRepository, GeneralInfoRepository>();
 
-            services.AddSingleton<IQuestionService, QuestionManager>();
-            services.AddSingleton<IQuestionRepository, QuestionRepository>();
+            services.AddScoped<IQuestionService, QuestionManager>();
+            services.AddScoped<IQuestionRepository, QuestionRepository>();
 
-            services.AddSingleton<INewsService, NewsManager>();
-            services.AddSingleton<INewsRepository, NewsRepository>();
+            services.AddScoped<INewsService, NewsManager>();
+            services.AddScoped<INewsRepository, NewsRepository>();
 
-            services.AddSingleton<IOtherInfoDescriptionService, OtherInfoDescriptionManager>();
-            services.AddSingleton<IOtherInfoDescriptionRepository, OtherInfoDescriptionRepository>();
+            services.AddScoped<IOtherInfoDescriptionService, OtherInfoDescriptionManager>();
+            services.AddScoped<IOtherInfoDescriptionRepository, OtherInfoDescriptionRepository>();
 
-            services.AddSingleton<IOtherInfoService, OtherInfoManager>();
-            services.AddSingleton<IOtherInfoRepository, OtherInfoRepository>();
+            services.AddScoped<IOtherInfoService, OtherInfoManager>();
+            services.AddScoped<IOtherInfoRepository, OtherInfoRepository>();
 
-            services.AddSingleton<ISendMessageService, SendMessageManager>();
-            services.AddSingleton<ISendMessageRepository, SendMessageRepository>();
+            services.AddScoped<ISendMessageService, SendMessageManager>();
+            services.AddScoped<ISendMessageRepository, SendMessageRepository>();
 
-            services.AddSingleton<ISubscribeService, SubscribeManager>();
-            services.AddSingleton<ISubscribeRepository, SubscribeRepository>();
+            services.AddScoped<ISubscribeService, SubscribeManager>();
+            services.AddScoped<ISubscribeRepository, SubscribeRepository>();
 
-            services.AddSingleton<ITeacherService, TeacherManager>();
-            services.AddSingleton<ITeacherRepository, TeacherRepository>();
+            services.AddScoped<ITeacherService, TeacherManager>();
+            services.AddScoped<ITeacherRepository, TeacherRepository>();
 
-            services.AddSingleton<IVacancyDescriptionService, VacancyDescriptionManager>();
-            services.AddSingleton<IVacancyDescriptionRepository, VacancyDescriptionRepository>();
+            services.AddScoped<IVacancyDescriptionService, VacancyDescriptionManager>();
+            services.AddScoped<IVacancyDescriptionRepository, VacancyDescriptionRepository>();
 
-            services.AddSingleton<IVacancyDetailsService, VacancyDetailsManager>();
-            services.AddSingleton<IVacancyDetailsRepository, VacancyDetailRepository>();
+            services.AddScoped<IVacancyDetailsService, VacancyDetailsManager>();
+            services.AddScoped<IVacancyDetailsRepository, VacancyDetailRepository>();
 
-            services.AddSingleton<IVacancyService, VacancyManager>();
-            services.AddSingleton<IVacancyRepository, VacancyRepository>();
+            services.AddScoped<IVacancyService, VacancyManager>();
+            services.AddScoped<IVacancyRepository, VacancyRepository>();
 
             return services;
         }

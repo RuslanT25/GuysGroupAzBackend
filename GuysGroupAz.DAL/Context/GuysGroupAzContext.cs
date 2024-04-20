@@ -10,7 +10,7 @@ namespace GuysGroupAz.DAL.Context
 {
     public class GuysGroupAzContext : DbContext
     {
-        public GuysGroupAzContext(DbContextOptions<GuysGroupAzContext> options) : base(options)
+        public GuysGroupAzContext(DbContextOptions options) : base(options)
         {
 
         }

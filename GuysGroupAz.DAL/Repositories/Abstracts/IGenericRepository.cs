@@ -1,4 +1,5 @@
 ﻿using GuysGroupAz.Entity.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,7 @@ namespace GuysGroupAz.DAL.Repositories.Abstracts
         Task<List<T>> GetAllAsync();
         List<T> GetAll();
         Task<T> GetByIdAsync(int id);
+        Task<T> GetByIdWithDeletedAsync(int id);
         T GetById(int id);
 
         //Modify Commands

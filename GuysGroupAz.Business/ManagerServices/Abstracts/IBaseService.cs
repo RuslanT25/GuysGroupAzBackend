@@ -1,4 +1,5 @@
 ﻿using GuysGroupAz.Entity.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,7 @@ namespace GuysGroupAz.Business.ManagerServices.Abstracts
     {
         Task<List<T>> GetAllAsync();
         Task<T> GetByIdAsync(int id);
+        Task<T> GetByIdWithDeletedAsync(int id);
 
         //Modify Commands
         void Add(T entity);

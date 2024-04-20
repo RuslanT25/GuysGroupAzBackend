@@ -19,8 +19,8 @@ namespace GuysGroupAz.Entity.Validations
 
             RuleFor(x => x.Phone)
                 .NotEmpty()
-                .Matches(@"^\+994(50|51|55|60|70|77|99)\d{8}$")
-                    .WithMessage("The phone number must start with '+994' and the next two digits must be one of 50, 51, 55, 60, 70, 77, 99. Afterwards, 8 numbers must be entered.");
+                .Matches(@"^\+994(50|51|55|60|70|77|99)\d{7}$")
+                    .WithMessage("Telefon nömrəsi +994 ilə başlamalıdır.Bu operatorlar istifadə oluna bilər : \"50\",\"51\",\"55\",\"60\",\"70\",\"77\",\"99\".Ümumi uzunluq 13 simvol olmalıdır.");
 
             RuleFor(x => x.Location)
                 .NotEmpty()
