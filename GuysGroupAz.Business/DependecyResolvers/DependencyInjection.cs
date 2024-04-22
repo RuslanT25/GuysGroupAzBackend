@@ -51,6 +51,9 @@ namespace GuysGroupAz.Business.DependecyResolvers
             services.AddScoped<ISubscribeService, SubscribeManager>();
             services.AddScoped<ISubscribeRepository, SubscribeRepository>();
 
+            services.AddScoped<IServiceService, ServiceManager>();
+            services.AddScoped<IServiceRepository, ServiceRepository>();
+
             services.AddScoped<ITeacherService, TeacherManager>();
             services.AddScoped<ITeacherRepository, TeacherRepository>();
 

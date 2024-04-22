@@ -14,6 +14,7 @@ namespace GuysGroupAz.Business.DependecyResolvers
         public static IServiceCollection AddValidations(this IServiceCollection services)
         {
             services.AddValidatorsFromAssemblyContaining<ContactValidation>();
+            services.AddValidatorsFromAssemblyContaining<ServiceValidation>();
 
             return services;
         }
