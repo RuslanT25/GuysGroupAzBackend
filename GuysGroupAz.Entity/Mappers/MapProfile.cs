@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using GuysGroupAz.Entity.DTOs.Contact;
+using GuysGroupAz.Entity.DTOs.GeneralInfo;
 using GuysGroupAz.Entity.DTOs.SendMessage;
 using GuysGroupAz.Entity.DTOs.Service;
 using GuysGroupAz.Entity.DTOs.Subcribe;
@@ -27,6 +28,9 @@ namespace GuysGroupAz.Entity.Mappers
 
             CreateMap<Subscribe, SubscribePostDTO>().ReverseMap();
             CreateMap<Subscribe, SubscribeGetDTO>().ReverseMap();
+
+            CreateMap<GeneralInfo, GeneralInfoPostDTO>().ReverseMap();
+            CreateMap<GeneralInfo, GeneralInfoGetDTO>().ReverseMap();
         }
     }
 }
