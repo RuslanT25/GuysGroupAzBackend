@@ -26,7 +26,7 @@ namespace GuysGroupAz.Business.ManagerServices.Concretes
             }
         }
 
-        public async Task AddAsync(T entity)
+        public  async Task AddAsync(T entity)
         {
             var result = await _repository.AnyAsync(x => x.Id == entity.Id);
             if (!result)

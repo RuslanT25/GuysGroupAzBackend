@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using GuysGroupAz.Entity.DTOs.Contact;
+using GuysGroupAz.Entity.DTOs.SendMessage;
 using GuysGroupAz.Entity.DTOs.Service;
 using GuysGroupAz.Entity.Models;
 using System;
@@ -19,6 +20,9 @@ namespace GuysGroupAz.Entity.Mappers
 
             CreateMap<Service, ServicePostDTO>().ReverseMap();
             CreateMap<Service, ServiceGetDTO>().ReverseMap();
+
+            CreateMap<SendMessage, SendMessagePostDTO>().ReverseMap();
+            CreateMap<SendMessage, SendMessageGetDTO>().ReverseMap();
         }
     }
 }

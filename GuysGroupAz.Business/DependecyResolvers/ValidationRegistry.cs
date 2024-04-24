@@ -15,6 +15,7 @@ namespace GuysGroupAz.Business.DependecyResolvers
         {
             services.AddValidatorsFromAssemblyContaining<ContactValidation>();
             services.AddValidatorsFromAssemblyContaining<ServiceValidation>();
+            services.AddValidatorsFromAssemblyContaining<SendMessageValidation>();
 
             return services;
         }
