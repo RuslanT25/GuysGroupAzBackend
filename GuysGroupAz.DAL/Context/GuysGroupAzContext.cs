@@ -17,6 +17,7 @@ namespace GuysGroupAz.DAL.Context
 
         public DbSet<News> News { get; set; }
         public DbSet<Blog> Blogs { get; set; }
+        public DbSet<BlogImage> BlogImages { get; set; }
         public DbSet<Contact> Contacts { get; set; }
         public DbSet<Subscribe> Subscribes {  get; set; }
         public DbSet<SendMessage> SendMessages { get; set; }

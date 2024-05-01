@@ -1,4 +1,6 @@
-﻿using GuysGroupAz.Entity.Models;
+﻿using GuysGroupAz.Entity.DTOs.BlogImage;
+using GuysGroupAz.Entity.Models;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.Linq;
