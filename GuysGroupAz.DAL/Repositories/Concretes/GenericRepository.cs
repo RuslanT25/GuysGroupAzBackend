@@ -49,7 +49,7 @@ namespace GuysGroupAz.DAL.Repositories.Concretes
             _context.SaveChanges();
         }
 
-        public async Task<List<T>> GetAllAsync()
+        public virtual async Task<List<T>> GetAllAsync()
         {
             return await _context.Set<T>().Where(x => x.DeletedAt == null).AsNoTracking().ToListAsync();
         }

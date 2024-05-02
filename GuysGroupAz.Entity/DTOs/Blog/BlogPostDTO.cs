@@ -1,17 +1,18 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GuysGroupAz.Entity.Models
+namespace GuysGroupAz.Entity.DTOs.Blog
 {
-    public class Blog : BaseEntity
+    public class BlogPostDTO
     {
         public string Title { get; set; }
         public string Description { get; set; }
-        public string CoverImage { get; set; }
-        public virtual List<BlogImage> BlogImages { get; set; }
+        public IFormFile CoverImageFile { get; set; }
+        public List<int> BlogImageIds { get; set; }
         public DateTime PublishDate { get; set; }
     }
 }

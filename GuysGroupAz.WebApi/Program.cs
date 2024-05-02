@@ -39,7 +39,7 @@ namespace GuysGroupAz.WebApi
             }
 
             app.UseHttpsRedirection();
-
+            app.UseStaticFiles();
             app.UseAuthorization();
 
 

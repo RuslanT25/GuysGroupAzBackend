@@ -2,6 +2,7 @@
 using GuysGroupAz.Business.ManagerServices.Concretes;
 using GuysGroupAz.DAL.Repositories.Abstracts;
 using GuysGroupAz.DAL.Repositories.Concretes;
+using GuysGroupAz.Entity.Models;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -23,6 +24,8 @@ namespace GuysGroupAz.Business.DependecyResolvers
 
             services.AddScoped<IBlogService, BlogManager>();
             services.AddScoped<IBlogRepository, BlogRepository>();
+
+            services.AddScoped<IGenericRepository<BlogImage>, GenericRepository<BlogImage>>();
 
             services.AddScoped<IContactService, ContactManager>();
             services.AddScoped<IContactRepository, ContactRepository>();

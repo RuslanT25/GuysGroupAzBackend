@@ -61,7 +61,7 @@ namespace GuysGroupAz.WebApi.Controllers
             string filePath = "";
             if (model.ImageFile != null)
             {
-                filePath = await _imageRepository.ImageUpload("blogs", model.ImageFile);
+                filePath = await _imageRepository.ImageUpload("blogimages", model.ImageFile);
             }
 
             var blogImage = _mapper.Map<BlogImage>(model);
