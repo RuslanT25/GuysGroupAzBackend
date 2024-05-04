@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GuysGroupAz.Entity.DTOs.BlogImage
+namespace GuysGroupAz.Entity.Models
 {
-    public class BlogImageGetDTO
+    public class NewsImage : BaseEntity
     {
-        public int Id { get; set; }
         public string Name { get; set; }
         public string Image {  get; set; }
     }

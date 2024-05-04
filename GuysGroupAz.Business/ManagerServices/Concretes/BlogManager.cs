@@ -32,7 +32,7 @@ namespace GuysGroupAz.Business.ManagerServices.Concretes
             var existingBlog = await _repository.GetByIdEagerAsync(id);
             if (existingBlog == null)
             {
-                throw new Exception("Blog not found");
+                throw new Exception("Blog tapılmadı.");
             }
 
             var existingBlogImages = await _blogImageRepository.Where(bi => existingBlog.BlogImages.Select(b => b.Id).Contains(bi.Id)).ToListAsync();

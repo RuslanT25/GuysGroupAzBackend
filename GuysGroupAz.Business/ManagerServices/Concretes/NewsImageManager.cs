@@ -9,12 +9,12 @@ using System.Threading.Tasks;
 
 namespace GuysGroupAz.Business.ManagerServices.Concretes
 {
-    public class BlogImageManager : BaseManager<BlogImage>, IBlogImageService
+    public class NewsImageManager : BaseManager<NewsImage> ,INewsImageService
     {
-        readonly IBlogImageRepository _repository;
-        public BlogImageManager(IBlogImageRepository blogImageRepository) : base(blogImageRepository)
+        readonly INewsImageRepository _repository;
+        public NewsImageManager(INewsImageRepository newsImage) : base(newsImage)
         {
-            _repository = blogImageRepository;
+            _repository = newsImage;
         }
     }
 }

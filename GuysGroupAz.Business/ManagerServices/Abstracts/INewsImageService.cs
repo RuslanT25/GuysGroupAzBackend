@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GuysGroupAz.Business.ManagerServices.Abstracts
 {
-    public interface IBlogImageService : IBaseService<BlogImage>
+    public interface INewsImageService : IBaseService<NewsImage>
     {
     }
 }

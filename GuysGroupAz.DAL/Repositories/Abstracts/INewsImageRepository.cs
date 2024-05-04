@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GuysGroupAz.Business.ManagerServices.Abstracts
+namespace GuysGroupAz.DAL.Repositories.Abstracts
 {
-    public interface IBlogImageService : IBaseService<BlogImage>
+    public interface INewsImageRepository : IGenericRepository<NewsImage>
     {
     }
 }

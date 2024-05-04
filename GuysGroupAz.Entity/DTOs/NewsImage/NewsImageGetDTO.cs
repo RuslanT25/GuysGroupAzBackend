@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GuysGroupAz.Entity.DTOs.BlogImage
+namespace GuysGroupAz.Entity.DTOs.NewsImage
 {
-    public class BlogImageGetDTO
+    public class NewsImageGetDTO
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public string Image {  get; set; }
+        public string Image { get; set; }
     }
 }
