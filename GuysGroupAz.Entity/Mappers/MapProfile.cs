@@ -3,6 +3,7 @@ using GuysGroupAz.Entity.DTOs.Blog;
 using GuysGroupAz.Entity.DTOs.BlogImage;
 using GuysGroupAz.Entity.DTOs.Contact;
 using GuysGroupAz.Entity.DTOs.GeneralInfo;
+using GuysGroupAz.Entity.DTOs.News;
 using GuysGroupAz.Entity.DTOs.NewsImage;
 using GuysGroupAz.Entity.DTOs.SendMessage;
 using GuysGroupAz.Entity.DTOs.Service;
@@ -47,6 +48,11 @@ namespace GuysGroupAz.Entity.Mappers
             CreateMap<NewsImagePostDTO, NewsImage>().ReverseMap();
             CreateMap<NewsImage, NewsImageGetDTO>()
                 .ForMember(dto => dto.Image, opt => opt.MapFrom(x => "https://localhost:7142/uploads/photos/newsimages/" + x.Image)).ReverseMap();
+
+            CreateMap<NewsPostDTO, News>()
+           .ForMember(b => b.NewsImages, opt => opt.Ignore());
+            CreateMap<News, NewsGetDTO>()
+                .ForMember(dto => dto.CoverImage, opt => opt.MapFrom(x => "https://localhost:7142/uploads/photos/news/" + x.CoverImage)).ReverseMap();
         }
     }
 }

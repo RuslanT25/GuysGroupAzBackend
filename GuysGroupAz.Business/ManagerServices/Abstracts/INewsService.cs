@@ -9,5 +9,8 @@ namespace GuysGroupAz.Business.ManagerServices.Abstracts
 {
     public interface INewsService : IBaseService<News>
     {
+        public Task AddNewsWithImagesAsync(News news, List<int> newsImageIds);
+        public Task UpdateNewsWithImagesAsync(int id, News news, List<int> newsImageIds);
+        public Task<News> GetByIdEagerAsync(int id);
     }
 }

@@ -9,5 +9,6 @@ namespace GuysGroupAz.DAL.Repositories.Abstracts
 {
     public interface INewsRepository : IGenericRepository<News>
     {
+        public Task<News> GetByIdEagerAsync(int id);
     }
 }

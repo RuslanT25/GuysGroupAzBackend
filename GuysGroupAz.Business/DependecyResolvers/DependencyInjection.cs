@@ -42,6 +42,8 @@ namespace GuysGroupAz.Business.DependecyResolvers
             services.AddScoped<INewsImageService, NewsImageManager>();
             services.AddScoped<INewsImageRepository, NewsImageRepository>();
 
+            services.AddScoped<IGenericRepository<NewsImage>, GenericRepository<NewsImage>>();
+
             services.AddScoped<INewsService, NewsManager>();
             services.AddScoped<INewsRepository, NewsRepository>();
 
