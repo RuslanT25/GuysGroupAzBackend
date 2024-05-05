@@ -33,6 +33,8 @@ namespace GuysGroupAz.Business.DependecyResolvers
             services.AddScoped<ICourseService, CourseManager>();
             services.AddScoped<ICourseRepository, CourseRepository>();
 
+            services.AddScoped<IGenericRepository<Teacher>, GenericRepository<Teacher>>();
+
             services.AddScoped<IGeneralInfoService, GeneralInfoManager>();
             services.AddScoped<IGeneralInfoRepository, GeneralInfoRepository>();
 

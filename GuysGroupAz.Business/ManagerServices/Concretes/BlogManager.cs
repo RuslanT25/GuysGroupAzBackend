@@ -21,13 +21,13 @@ namespace GuysGroupAz.Business.ManagerServices.Concretes
             _blogImageRepository = blogImageRepository;
         }
 
-        public async Task AddBlogWithImagesAsync(Blog blog, List<int> blogImageIds)
+        public async Task AddBlogWithBlogImagesAsync(Blog blog, List<int> blogImageIds)
         {
             blog.BlogImages = await _blogImageRepository.Where(bi => blogImageIds.Contains(bi.Id)).ToListAsync();
             await _repository.AddAsync(blog);
         }
 
-        public async Task UpdateBlogWithImagesAsync(int id, Blog blog, List<int> blogImageIds)
+        public async Task UpdateBlogWithBlogImagesAsync(int id, Blog blog, List<int> blogImageIds)
         {
             var existingBlog = await _repository.GetByIdEagerAsync(id);
             if (existingBlog == null)

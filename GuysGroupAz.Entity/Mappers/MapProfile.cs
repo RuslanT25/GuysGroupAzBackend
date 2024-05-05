@@ -2,6 +2,7 @@
 using GuysGroupAz.Entity.DTOs.Blog;
 using GuysGroupAz.Entity.DTOs.BlogImage;
 using GuysGroupAz.Entity.DTOs.Contact;
+using GuysGroupAz.Entity.DTOs.Course;
 using GuysGroupAz.Entity.DTOs.GeneralInfo;
 using GuysGroupAz.Entity.DTOs.News;
 using GuysGroupAz.Entity.DTOs.NewsImage;
@@ -42,7 +43,7 @@ namespace GuysGroupAz.Entity.Mappers
                 .ForMember(dto => dto.Image, opt => opt.MapFrom(x => "https://localhost:7142/uploads/photos/blogimages/" + x.Image)).ReverseMap();
 
             CreateMap<BlogPostDTO, Blog>()
-            .ForMember(b => b.BlogImages, opt => opt.Ignore());
+                .ForMember(b => b.BlogImages, opt => opt.Ignore());
             CreateMap<Blog, BlogGetDTO>()
                 .ForMember(dto => dto.CoverImage, opt => opt.MapFrom(x => "https://localhost:7142/uploads/photos/blogs/" + x.CoverImage)).ReverseMap();
 
@@ -59,6 +60,12 @@ namespace GuysGroupAz.Entity.Mappers
             CreateMap<Teacher, TeacherGetDTO>()
                 .ForMember(dto => dto.Course, opt => opt.MapFrom(x => x.Course.Name))
                 .ForMember(dto => dto.Image, opt => opt.MapFrom(x => "https://localhost:7142/uploads/photos/teachers/" + x.Image)).ReverseMap();
+
+            CreateMap<CoursePostDTO, Course>()
+                .ForMember(b => b.Teachers, opt => opt.Ignore());
+            CreateMap<Course, CourseGetDTO>()
+                .ForMember(dto => dto.Type, opt => opt.MapFrom(x => x.Type.ToString()))
+                .ForMember(dto => dto.Image, opt => opt.MapFrom(x => "https://localhost:7142/uploads/photos/courses/" + x.Image)).ReverseMap();
         }
     }
 }

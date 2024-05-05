@@ -61,7 +61,7 @@ namespace GuysGroupAz.WebApi.Controllers
                 return BadRequest(validateResult.Errors.Select(x => x.ErrorMessage).ToList());
             }
 
-            await _blogService.AddBlogWithImagesAsync(blog, model.BlogImageIds);
+            await _blogService.AddBlogWithBlogImagesAsync(blog, model.BlogImageIds);
 
             var blogDto = _mapper.Map<BlogGetDTO>(blog);
             return Ok(blogDto);
@@ -90,7 +90,7 @@ namespace GuysGroupAz.WebApi.Controllers
                 return BadRequest(validateResult.Errors.Select(x => x.ErrorMessage).ToList());
             }
 
-            await _blogService.UpdateBlogWithImagesAsync(id, blog, model.BlogImageIds);
+            await _blogService.UpdateBlogWithBlogImagesAsync(id, blog, model.BlogImageIds);
 
             var blogDto = _mapper.Map<BlogGetDTO>(blog);
             return Ok(blogDto);

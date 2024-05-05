@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace GuysGroupAz.Entity.Validations
 {
-    public class BlogValidation : AbstractValidator<Blog>
+    public class CourseValidation : AbstractValidator<Course>
     {
-        public BlogValidation()
+        public CourseValidation()
         {
             
         }
