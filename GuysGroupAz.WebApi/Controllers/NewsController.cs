@@ -49,7 +49,7 @@ namespace GuysGroupAz.WebApi.Controllers
             string filePath = "";
             if (model.CoverImageFile != null)
             {
-                filePath = await _imageRepository.ImageUpload("newss", model.CoverImageFile);
+                filePath = await _imageRepository.ImageUpload("news", model.CoverImageFile);
             }
 
             var news = _mapper.Map<News>(model);
@@ -78,7 +78,7 @@ namespace GuysGroupAz.WebApi.Controllers
             string filePath = "";
             if (model.CoverImageFile != null)
             {
-                filePath = await _imageRepository.ImageUpload("newss", model.CoverImageFile);
+                filePath = await _imageRepository.ImageUpload("news", model.CoverImageFile);
             }
 
             var news = _mapper.Map<News>(model);

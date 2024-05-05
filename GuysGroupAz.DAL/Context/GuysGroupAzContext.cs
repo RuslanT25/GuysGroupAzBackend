@@ -16,6 +16,7 @@ namespace GuysGroupAz.DAL.Context
         }
 
         public DbSet<News> News { get; set; }
+        public DbSet<NewsImage> NewsImages { get; set; }
         public DbSet<Blog> Blogs { get; set; }
         public DbSet<BlogImage> BlogImages { get; set; }
         public DbSet<Contact> Contacts { get; set; }
@@ -28,6 +29,7 @@ namespace GuysGroupAz.DAL.Context
         public DbSet<OtherInfo> OtherInfos { get; set; }
         public DbSet<GeneralInfo> GeneralInfos {  get; set; }
         public DbSet<About> Abouts { get; set; }
+        public DbSet<AboutImage> AboutImages { get; set; }
         public DbSet<VacancyDescription> VacancyDescriptions { get; set; }
         public DbSet<VacancyDetail> VacancyDetails { get; set; }
         public DbSet<Vacancy> Vacancies { get; set; }

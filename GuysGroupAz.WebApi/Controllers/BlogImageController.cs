@@ -88,8 +88,8 @@ namespace GuysGroupAz.WebApi.Controllers
 
             if (model.ImageFile != null)
             {
-                _imageRepository.DeleteImage("blogs", blogImage.Image);
-                blogImage.Image = await _imageRepository.ImageUpload("blogs", model.ImageFile);
+                _imageRepository.DeleteImage("blogimages", blogImage.Image);
+                blogImage.Image = await _imageRepository.ImageUpload("blogimages", model.ImageFile);
             }
 
             blogImage.Name = model.Name;

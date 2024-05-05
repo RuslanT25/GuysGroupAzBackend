@@ -10,5 +10,6 @@ namespace GuysGroupAz.Entity.Models
     {
         public string Title { get; set; }
         public string Description { get; set; }
+        public virtual List<AboutImage> AboutImages { get; set; }
     }
 }

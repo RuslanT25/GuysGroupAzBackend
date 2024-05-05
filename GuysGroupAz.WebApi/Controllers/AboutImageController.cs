@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using GuysGroupAz.Business.ManagerServices.Abstracts;
 using GuysGroupAz.DAL.Repositories.Abstracts;
-using GuysGroupAz.Entity.DTOs.NewsImage;
+using GuysGroupAz.Entity.DTOs.AboutImage;
 using GuysGroupAz.Entity.Models;
 using GuysGroupAz.Entity.Validations;
 using Microsoft.AspNetCore.Http;
@@ -11,37 +11,37 @@ namespace GuysGroupAz.WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class NewsImageController : ControllerBase
+    public class AboutImageController : ControllerBase
     {
-        readonly INewsImageService _newsImageService;
+        readonly IAboutImageService _aboutImageService;
         readonly IMapper _mapper;
-        readonly NewsImageValidation _newsImageValidation;
+        readonly AboutImageValidation _aboutImageValidation;
         readonly IImageRepository _imageRepository;
-        public NewsImageController(INewsImageService newsImageService, IMapper mapper, NewsImageValidation validationRules, IImageRepository imageRepository)
+        public AboutImageController(IAboutImageService aboutImageService, IMapper mapper, AboutImageValidation validationRules, IImageRepository imageRepository)
         {
-            _newsImageService = newsImageService;
+            _aboutImageService = aboutImageService;
             _mapper = mapper;
-            _newsImageValidation = validationRules;
+            _aboutImageValidation = validationRules;
             _imageRepository = imageRepository;
         }
 
         [HttpGet("getall")]
         public async Task<IActionResult> GetAllAsync()
         {
-            var models = await _newsImageService.GetAllAsync();
-            var newsImages = _mapper.Map<List<NewsImageGetDTO>>(models);
-            if (newsImages is null)
+            var models = await _aboutImageService.GetAllAsync();
+            var aboutImages = _mapper.Map<List<AboutImageGetDTO>>(models);
+            if (aboutImages is null)
             {
                 return NotFound();
             }
 
-            return Ok(newsImages);
+            return Ok(aboutImages);
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetByIdAsync(int id)
         {
-            var model = await _newsImageService.GetByIdAsync(id);
+            var model = await _aboutImageService.GetByIdAsync(id);
             if (model is null)
             {
                 return NotFound();
@@ -51,7 +51,7 @@ namespace GuysGroupAz.WebApi.Controllers
         }
 
         [HttpPost("add")]
-        public async Task<IActionResult> AddAsync([FromForm] NewsImagePostDTO model)
+        public async Task<IActionResult> AddAsync([FromForm] AboutImagePostDTO model)
         {
             if (model is null)
             {
@@ -61,72 +61,73 @@ namespace GuysGroupAz.WebApi.Controllers
             string filePath = "";
             if (model.ImageFile != null)
             {
-                filePath = await _imageRepository.ImageUpload("newsimages", model.ImageFile);
+                filePath = await _imageRepository.ImageUpload("aboutimages", model.ImageFile);
             }
 
-            var newsImage = _mapper.Map<NewsImage>(model);
-            newsImage.Image = filePath;
+            var aboutImage = _mapper.Map<AboutImage>(model);
+            aboutImage.Image = filePath;
 
-            var validateResult = await _newsImageValidation.ValidateAsync(newsImage);
+            var validateResult = await _aboutImageValidation.ValidateAsync(aboutImage);
             if (!validateResult.IsValid)
             {
                 return BadRequest(validateResult.Errors.Select(x => x.ErrorMessage).ToList());
             }
 
-            await _newsImageService.AddAsync(newsImage);
-            return Ok(newsImage);
+            await _aboutImageService.AddAsync(aboutImage);
+            return Ok(aboutImage);
         }
 
         [HttpPut("update")]
-        public async Task<IActionResult> Update(int id, [FromForm] NewsImagePostDTO model)
+        public async Task<IActionResult> Update(int id, [FromForm] AboutImagePostDTO model)
         {
-            var newsImage = await _newsImageService.GetByIdAsync(id);
-            if (newsImage is null)
+            var aboutImage = await _aboutImageService.GetByIdAsync(id);
+            if (aboutImage is null)
             {
                 return NotFound();
             }
 
             if (model.ImageFile != null)
             {
-                _imageRepository.DeleteImage("newsimages", newsImage.Image);
-                newsImage.Image = await _imageRepository.ImageUpload("newsimages", model.ImageFile);
+                _imageRepository.DeleteImage("aboutimages", aboutImage.Image);
+                aboutImage.Image = await _imageRepository.ImageUpload("aboutimages", model.ImageFile);
             }
 
-            newsImage.Name = model.Name;
+            aboutImage.Name = model.Name;
 
-            var validateResult = await _newsImageValidation.ValidateAsync(newsImage);
+            var validateResult = await _aboutImageValidation.ValidateAsync(aboutImage);
             if (!validateResult.IsValid)
             {
                 return BadRequest(validateResult.Errors.Select(x => x.ErrorMessage).ToList());
             }
 
-            _newsImageService.Update(newsImage);
+            _aboutImageService.Update(aboutImage);
             return NoContent();
         }
+
 
         [HttpDelete("delete/{id}")]
         public async Task<IActionResult> Delete(int id)
         {
-            var newsImage = await _newsImageService.GetByIdAsync(id);
-            if (newsImage is null)
+            var aboutImage = await _aboutImageService.GetByIdAsync(id);
+            if (aboutImage is null)
             {
                 return NotFound();
             }
 
-            _newsImageService.Delete(newsImage);
+            _aboutImageService.Delete(aboutImage);
             return NoContent();
         }
 
         [HttpDelete("destroy/{id}")]
         public async Task<IActionResult> Destroy(int id)
         {
-            var newsImage = await _newsImageService.GetByIdWithDeletedAsync(id);
-            if (newsImage is null)
+            var aboutImage = await _aboutImageService.GetByIdWithDeletedAsync(id);
+            if (aboutImage is null)
             {
                 return NotFound();
             }
 
-            _newsImageService.Destroy(newsImage);
+            _aboutImageService.Destroy(aboutImage);
             return NoContent();
         }
     }

@@ -19,6 +19,9 @@ namespace GuysGroupAz.Business.DependecyResolvers
             services.AddScoped<IAboutService, AboutManager>();
             services.AddScoped<IAboutRepository, AboutRepository>();
 
+            services.AddScoped<IAboutImageService, AboutImageManager>();
+            services.AddScoped<IAboutImageRepository, AboutImageRepository>();
+
             services.AddScoped<IBlogImageService, BlogImageManager>();
             services.AddScoped<IBlogImageRepository, BlogImageRepository>();
 
