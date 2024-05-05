@@ -9,5 +9,6 @@ namespace GuysGroupAz.DAL.Repositories.Abstracts
 {
     public interface ITeacherRepository : IGenericRepository<Teacher>
     {
+        public Task<Teacher> GetByIdEagerAsync(int id);
     }
 }

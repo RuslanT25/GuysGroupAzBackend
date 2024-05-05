@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace GuysGroupAz.Entity.DTOs.Blog
 {
     public class BlogGetDTO
-    {
+    {   
         public int Id { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }

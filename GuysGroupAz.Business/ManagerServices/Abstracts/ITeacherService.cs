@@ -9,5 +9,8 @@ namespace GuysGroupAz.Business.ManagerServices.Abstracts
 {
     public interface ITeacherService : IBaseService<Teacher>
     {
+        public Task AddTeacherWithCourseAsync(Teacher teacher, int? courseId);
+        public Task UpdateTeacherWithCourseAsync(int id, Teacher teacher, int? courseId);
+        public Task<Teacher> GetByIdEagerAsync(int id);
     }
 }

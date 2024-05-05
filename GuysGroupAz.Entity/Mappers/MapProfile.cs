@@ -8,6 +8,7 @@ using GuysGroupAz.Entity.DTOs.NewsImage;
 using GuysGroupAz.Entity.DTOs.SendMessage;
 using GuysGroupAz.Entity.DTOs.Service;
 using GuysGroupAz.Entity.DTOs.Subcribe;
+using GuysGroupAz.Entity.DTOs.Teacher;
 using GuysGroupAz.Entity.Models;
 using System;
 using System.Collections.Generic;
@@ -53,6 +54,11 @@ namespace GuysGroupAz.Entity.Mappers
            .ForMember(b => b.NewsImages, opt => opt.Ignore());
             CreateMap<News, NewsGetDTO>()
                 .ForMember(dto => dto.CoverImage, opt => opt.MapFrom(x => "https://localhost:7142/uploads/photos/news/" + x.CoverImage)).ReverseMap();
+
+            CreateMap<Teacher, TeacherPostDTO>().ReverseMap();
+            CreateMap<Teacher, TeacherGetDTO>()
+                .ForMember(dto => dto.Course, opt => opt.MapFrom(x => x.Course.Name))
+                .ForMember(dto => dto.Image, opt => opt.MapFrom(x => "https://localhost:7142/uploads/photos/teachers/" + x.Image)).ReverseMap();
         }
     }
 }
