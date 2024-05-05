@@ -9,5 +9,8 @@ namespace GuysGroupAz.Business.ManagerServices.Abstracts
 {
     public interface IAboutService : IBaseService<About>
     {
+        public Task AddAboutWithAboutImagesAsync(About about, List<int> aboutImageIds);
+        public Task UpdateAboutWithAboutImagesAsync(int id, About about, List<int> aboutImageIds);
+        public Task<About> GetByIdEagerAsync(int id);
     }
 }

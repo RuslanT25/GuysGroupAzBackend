@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using GuysGroupAz.Entity.DTOs.About;
 using GuysGroupAz.Entity.DTOs.AboutImage;
 using GuysGroupAz.Entity.DTOs.Blog;
 using GuysGroupAz.Entity.DTOs.BlogImage;
@@ -71,6 +72,10 @@ namespace GuysGroupAz.Entity.Mappers
             CreateMap<AboutImagePostDTO, AboutImage>().ReverseMap();
             CreateMap<AboutImage, AboutImageGetDTO>()
                 .ForMember(dto => dto.Image, opt => opt.MapFrom(x => "https://localhost:7142/uploads/photos/aboutimages/" + x.Image)).ReverseMap();
+
+            CreateMap<AboutPostDTO, About>()
+           .ForMember(b => b.AboutImages, opt => opt.Ignore());
+            CreateMap<About, AboutGetDTO>().ReverseMap();
         }
     }
 }
