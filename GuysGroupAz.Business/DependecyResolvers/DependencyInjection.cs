@@ -57,6 +57,8 @@ namespace GuysGroupAz.Business.DependecyResolvers
             services.AddScoped<IOtherInfoDescriptionService, OtherInfoDescriptionManager>();
             services.AddScoped<IOtherInfoDescriptionRepository, OtherInfoDescriptionRepository>();
 
+            services.AddScoped<IGenericRepository<OtherInfo>, GenericRepository<OtherInfo>>();
+
             services.AddScoped<IOtherInfoService, OtherInfoManager>();
             services.AddScoped<IOtherInfoRepository, OtherInfoRepository>();
 

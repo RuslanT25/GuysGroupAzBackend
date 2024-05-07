@@ -9,5 +9,8 @@ namespace GuysGroupAz.Business.ManagerServices.Abstracts
 {
     public interface IOtherInfoDescriptionService : IBaseService<OtherInfoDescription>
     {
+        public Task AddOtherInfoDescriptionWithOtherInfoAsync(OtherInfoDescription otherInfoDescription, int? otherInfoId);
+        public Task UpdateOtherInfoDescriptionWithOtherInfoAsync(int id, OtherInfoDescription otherInfoDescription, int? otherInfoId);
+        public Task<OtherInfoDescription> GetByIdEagerAsync(int id);
     }
 }

@@ -1,15 +1,15 @@
-﻿using System;
+﻿using GuysGroupAz.Entity.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GuysGroupAz.Entity.Models
+namespace GuysGroupAz.Entity.DTOs.OtherInfoDescription
 {
-    public class OtherInfoDescription : BaseEntity
+    public class OtherInfoDescriptionPostDTO
     {
         public string Description { get; set; }
-        public virtual OtherInfo? OtherInfo { get; set; }
         public int? OtherInfoId { get; set; }
     }
 }

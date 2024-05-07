@@ -9,12 +9,12 @@ using System.Threading.Tasks;
 
 namespace GuysGroupAz.Business.ManagerServices.Concretes
 {
-    public class OtherInfoDescriptionManager : BaseManager<OtherInfoDescription>, IOtherInfoDescriptionService
+    public class OtherInfoManager : BaseManager<OtherInfo>,IOtherInfoService
     {
-        readonly IOtherInfoDescriptionRepository _repository;
-        public OtherInfoDescriptionManager(IOtherInfoDescriptionRepository otherInfoDescriptionRepository) : base(otherInfoDescriptionRepository)
+        readonly IOtherInfoRepository _repository;
+        public OtherInfoManager(IOtherInfoRepository otherInfoRepository) :base(otherInfoRepository)
         {
-            _repository = otherInfoDescriptionRepository;
+            _repository = otherInfoRepository;
         }
     }
 }

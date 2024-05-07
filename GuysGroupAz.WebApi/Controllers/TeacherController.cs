@@ -105,8 +105,8 @@ namespace GuysGroupAz.WebApi.Controllers
 
             await _teacherService.UpdateTeacherWithCourseAsync(id, teacher, model.CourseId);
 
-            var blogDto = _mapper.Map<TeacherGetDTO>(teacher);
-            return Ok(blogDto);
+            var teacherDto = _mapper.Map<TeacherGetDTO>(teacher);
+            return Ok(teacherDto);
         }
 
         [HttpDelete("delete/{id}")]

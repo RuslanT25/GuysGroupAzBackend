@@ -25,6 +25,8 @@ namespace GuysGroupAz.Business.DependecyResolvers
             services.AddValidatorsFromAssemblyContaining<CourseValidation>();
             services.AddValidatorsFromAssemblyContaining<AboutImageValidation>();
             services.AddValidatorsFromAssemblyContaining<AboutValidation>();
+            services.AddValidatorsFromAssemblyContaining<OtherInfoValidation>();
+            services.AddValidatorsFromAssemblyContaining<OtherInfoDescriptionValidation>();
 
             return services;
         }
