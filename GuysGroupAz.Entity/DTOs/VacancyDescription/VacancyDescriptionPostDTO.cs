@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GuysGroupAz.Entity.Models
+namespace GuysGroupAz.Entity.DTOs.VacancyDescription
 {
-    public class VacancyDescription : BaseEntity
+    public class VacancyDescriptionPostDTO
     {
         public string Description { get; set; }
     }

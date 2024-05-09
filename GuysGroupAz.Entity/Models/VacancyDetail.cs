@@ -9,8 +9,6 @@ namespace GuysGroupAz.Entity.Models
     public class VacancyDetail : BaseEntity
     {
         public string Title { get; set; }
-        public virtual List<VacancyDescription> VacancyDescriptions { get; set; }
-        public virtual Vacancy Vacancy { get; set; }
-        public int VacancyId { get; set; }
+        public virtual List<VacancyDescription>? VacancyDescriptions { get; set; }
     }
 }

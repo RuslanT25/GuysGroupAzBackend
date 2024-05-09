@@ -4,6 +4,7 @@ using GuysGroupAz.DAL.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GuysGroupAz.DAL.Migrations
 {
     [DbContext(typeof(GuysGroupAzContext))]
-    partial class GuysGroupAzContextModelSnapshot : ModelSnapshot
+    [Migration("20240509084838_DeletedVacancyIdFKFromVacancyDetailTable")]
+    partial class DeletedVacancyIdFKFromVacancyDetailTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -622,7 +624,7 @@ namespace GuysGroupAz.DAL.Migrations
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("VacancyDetailId")
+                    b.Property<int>("VacancyDetailId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -704,9 +706,13 @@ namespace GuysGroupAz.DAL.Migrations
 
             modelBuilder.Entity("GuysGroupAz.Entity.Models.VacancyDescription", b =>
                 {
-                    b.HasOne("GuysGroupAz.Entity.Models.VacancyDetail", null)
+                    b.HasOne("GuysGroupAz.Entity.Models.VacancyDetail", "VacancyDetail")
                         .WithMany("VacancyDescriptions")
-                        .HasForeignKey("VacancyDetailId");
+                        .HasForeignKey("VacancyDetailId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("VacancyDetail");
                 });
 
             modelBuilder.Entity("GuysGroupAz.Entity.Models.VacancyDetail", b =>
