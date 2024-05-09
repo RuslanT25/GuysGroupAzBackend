@@ -8,6 +8,7 @@ using GuysGroupAz.Entity.DTOs.Course;
 using GuysGroupAz.Entity.DTOs.GeneralInfo;
 using GuysGroupAz.Entity.DTOs.News;
 using GuysGroupAz.Entity.DTOs.NewsImage;
+using GuysGroupAz.Entity.DTOs.OtherInfo;
 using GuysGroupAz.Entity.DTOs.OtherInfoDescription;
 using GuysGroupAz.Entity.DTOs.SendMessage;
 using GuysGroupAz.Entity.DTOs.Service;
@@ -81,6 +82,10 @@ namespace GuysGroupAz.Entity.Mappers
             CreateMap<OtherInfoDescription, OtherInfoDescriptionPostDTO>().ReverseMap();
             CreateMap<OtherInfoDescription, OtherInfoDescriptionGetDTO>()
                 .ForMember(dto => dto.OtherInfo, opt => opt.MapFrom(x => x.OtherInfo.Title));
+
+            CreateMap<OtherInfoPostDTO, OtherInfo>()
+                .ForMember(b => b.OtherInfoDescriptions, opt => opt.Ignore());
+            CreateMap<OtherInfo, OtherInfoGetDTO>().ReverseMap();
         }
     }
 }

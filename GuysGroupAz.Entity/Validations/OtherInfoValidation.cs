@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace GuysGroupAz.Entity.Validations
 {
-    public class OtherInfoValidation : AbstractValidator<OtherInfoDescription>
+    public class OtherInfoValidation : AbstractValidator<OtherInfo>
     {
         public OtherInfoValidation()
         {
