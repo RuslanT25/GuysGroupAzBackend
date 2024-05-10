@@ -29,7 +29,9 @@ namespace GuysGroupAz.DAL.Repositories.Concretes
 
         public async Task<OtherInfoDescription> GetByIdEagerAsync(int id)
         {
-            return await _context.OtherInfoDescriptions.Include(b => b.OtherInfo).FirstOrDefaultAsync(b => b.Id == id);
+            return await _context.OtherInfoDescriptions
+                .Include(b => b.OtherInfo)
+                .FirstOrDefaultAsync(b => b.Id == id);
         }
     }
 }

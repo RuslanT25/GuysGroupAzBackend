@@ -30,7 +30,9 @@ namespace GuysGroupAz.DAL.Repositories.Concretes
 
         public async Task<Vacancy> GetByIdEagerAsync(int id)
         {
-            return await _context.Vacancies.Include(v => v.VacancyDetails).FirstOrDefaultAsync(v => v.Id == id);
+            return await _context.Vacancies
+                .Include(v => v.VacancyDetails.Where(x => x.DeletedAt == null))
+                .FirstOrDefaultAsync(v => v.Id == id);
         }
     }
 }

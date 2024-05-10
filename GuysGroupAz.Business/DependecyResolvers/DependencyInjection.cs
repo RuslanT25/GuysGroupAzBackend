@@ -40,6 +40,8 @@ namespace GuysGroupAz.Business.DependecyResolvers
 
             services.AddScoped<IGenericRepository<Teacher>, GenericRepository<Teacher>>();
 
+            services.AddScoped<IGenericRepository<Question>, GenericRepository<Question>>();
+
             services.AddScoped<IGeneralInfoService, GeneralInfoManager>();
             services.AddScoped<IGeneralInfoRepository, GeneralInfoRepository>();
 

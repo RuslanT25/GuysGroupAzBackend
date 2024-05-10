@@ -28,7 +28,9 @@ namespace GuysGroupAz.DAL.Repositories.Concretes
 
         public async Task<News> GetByIdEagerAsync(int id)
         {
-            return await _context.News.Include(b => b.NewsImages).FirstOrDefaultAsync(b => b.Id == id);
+            return await _context.News
+                .Include(b => b.NewsImages.Where(x => x.DeletedAt == null))
+                .FirstOrDefaultAsync(b => b.Id == id);
         }
     }
 }

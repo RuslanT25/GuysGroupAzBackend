@@ -61,7 +61,7 @@ namespace GuysGroupAz.WebApi.Controllers
                 return BadRequest(validateResult.Errors.Select(x => x.ErrorMessage).ToList());
             }
 
-            await _courseService.AddCouseWithTeachersAsync(course, model.TeacherIds);
+            await _courseService.AddCouseWithTeachersAndQuestionsAsync(course, model.TeacherIds, model.QuestionIds);
 
             var courseDto = _mapper.Map<CourseGetDTO>(course);
             return Ok(courseDto);
@@ -90,7 +90,7 @@ namespace GuysGroupAz.WebApi.Controllers
                 return BadRequest(validateResult.Errors.Select(x => x.ErrorMessage).ToList());
             }
 
-            await _courseService.UpdateCourseWithTeachersAsync(id, course, model.TeacherIds);
+            await _courseService.UpdateCourseWithTeachersAndQuestionsAsync(id, course, model.TeacherIds, model.QuestionIds);
 
             var courseDto = _mapper.Map<CourseGetDTO>(course);
             return Ok(courseDto);

@@ -17,5 +17,6 @@ namespace GuysGroupAz.Entity.DTOs.Course
         public string TeachingMethod { get; set; }
         public string DescriptionForTeachingMethod { get; set; }
         public virtual List<int>? TeacherIds { get; set; }
+        public virtual List<int>? QuestionIds { get; set; }
     }
 }

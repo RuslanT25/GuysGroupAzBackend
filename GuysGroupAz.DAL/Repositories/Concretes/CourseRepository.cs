@@ -22,6 +22,7 @@ namespace GuysGroupAz.DAL.Repositories.Concretes
         {
             return await _context.Courses
                 .Include(b => b.Teachers.Where(x => x.DeletedAt == null))
+                .Include(c => c.Questions.Where(x => x.DeletedAt == null))
                 .Where(x => x.DeletedAt == null)
                 .AsNoTracking()
                 .ToListAsync();
@@ -29,7 +30,10 @@ namespace GuysGroupAz.DAL.Repositories.Concretes
 
         public async Task<Course> GetByIdEagerAsync(int id)
         {
-            return await _context.Courses.Include(b => b.Teachers).FirstOrDefaultAsync(b => b.Id == id);
+            return await _context.Courses
+                .Include(b => b.Teachers.Where(x => x.DeletedAt == null))
+                .Include(c => c.Questions.Where(x => x.DeletedAt == null))
+                .FirstOrDefaultAsync(b => b.Id == id);
         }
     }
 }

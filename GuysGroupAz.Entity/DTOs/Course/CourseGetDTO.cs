@@ -1,4 +1,5 @@
-﻿using GuysGroupAz.Entity.DTOs.Teacher;
+﻿using GuysGroupAz.Entity.DTOs.Question;
+using GuysGroupAz.Entity.DTOs.Teacher;
 using GuysGroupAz.Entity.Models;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,7 @@ namespace GuysGroupAz.Entity.DTOs.Course
         public string Image { get; set; }
         public string TeachingMethod { get; set; }
         public string DescriptionForTeachingMethod { get; set; }
-        public virtual List<TeacherGetDTO>? Teachers { get; set; }
+        public  List<TeacherGetDTO>? Teachers { get; set; }
+        public  List<QuestionGetDTO>? Questions { get; set; }
     }
 }

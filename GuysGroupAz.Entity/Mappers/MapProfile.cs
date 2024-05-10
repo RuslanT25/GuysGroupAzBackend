@@ -70,7 +70,8 @@ namespace GuysGroupAz.Entity.Mappers
                 .ForMember(dto => dto.Image, opt => opt.MapFrom(x => "https://localhost:7142/uploads/photos/teachers/" + x.Image)).ReverseMap();
 
             CreateMap<CoursePostDTO, Course>()
-                .ForMember(b => b.Teachers, opt => opt.Ignore());
+                .ForMember(b => b.Teachers, opt => opt.Ignore())
+                .ForMember(c => c.Questions, opt => opt.Ignore());
             CreateMap<Course, CourseGetDTO>()
                 .ForMember(dto => dto.Type, opt => opt.MapFrom(x => x.Type.ToString()))
                 .ForMember(dto => dto.Image, opt => opt.MapFrom(x => "https://localhost:7142/uploads/photos/courses/" + x.Image)).ReverseMap();
