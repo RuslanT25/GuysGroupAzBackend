@@ -15,6 +15,7 @@ namespace GuysGroupAz.Entity.Models
         public string TeachingMethod { get; set; }
         public string DescriptionForTeachingMethod { get; set; }
         public virtual List<Teacher>? Teachers { get; set; }
+        public virtual List<Question>? Questions { get; set; }
     }
     public enum TypeOfCourse
     {

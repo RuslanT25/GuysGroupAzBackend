@@ -10,6 +10,7 @@ using GuysGroupAz.Entity.DTOs.News;
 using GuysGroupAz.Entity.DTOs.NewsImage;
 using GuysGroupAz.Entity.DTOs.OtherInfo;
 using GuysGroupAz.Entity.DTOs.OtherInfoDescription;
+using GuysGroupAz.Entity.DTOs.Question;
 using GuysGroupAz.Entity.DTOs.SendMessage;
 using GuysGroupAz.Entity.DTOs.Service;
 using GuysGroupAz.Entity.DTOs.Subcribe;
@@ -100,6 +101,9 @@ namespace GuysGroupAz.Entity.Mappers
             CreateMap<VacancyPostDTO, Vacancy>()
                 .ForMember(b => b.VacancyDetails, opt => opt.Ignore());
             CreateMap<Vacancy, VacancyGetDTO>().ReverseMap();
+
+            CreateMap<QuestionPostDTO, Question>().ReverseMap();
+            CreateMap<Question, QuestionGetDTO>().ReverseMap();
         }
     }
 }

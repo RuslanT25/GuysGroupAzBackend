@@ -4,6 +4,7 @@ using GuysGroupAz.DAL.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GuysGroupAz.DAL.Migrations
 {
     [DbContext(typeof(GuysGroupAzContext))]
-    partial class GuysGroupAzContextModelSnapshot : ModelSnapshot
+    [Migration("20240510055715_AddQuestionRelationWithServiceAndCourseTables")]
+    partial class AddQuestionRelationWithServiceAndCourseTables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -293,7 +295,7 @@ namespace GuysGroupAz.DAL.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("ServiceId")
+                    b.Property<int>("ServiceId")
                         .HasColumnType("int");
 
                     b.Property<DateTime?>("UpdatedAt")
@@ -685,13 +687,19 @@ namespace GuysGroupAz.DAL.Migrations
 
             modelBuilder.Entity("GuysGroupAz.Entity.Models.Question", b =>
                 {
-                    b.HasOne("GuysGroupAz.Entity.Models.Course", null)
+                    b.HasOne("GuysGroupAz.Entity.Models.Course", "Course")
                         .WithMany("Questions")
                         .HasForeignKey("CourseId");
 
-                    b.HasOne("GuysGroupAz.Entity.Models.Service", null)
+                    b.HasOne("GuysGroupAz.Entity.Models.Service", "Service")
                         .WithMany("Questions")
-                        .HasForeignKey("ServiceId");
+                        .HasForeignKey("ServiceId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Course");
+
+                    b.Navigation("Service");
                 });
 
             modelBuilder.Entity("GuysGroupAz.Entity.Models.NewsImage", b =>
