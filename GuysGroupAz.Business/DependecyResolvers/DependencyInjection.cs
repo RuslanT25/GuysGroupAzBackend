@@ -86,6 +86,8 @@ namespace GuysGroupAz.Business.DependecyResolvers
             services.AddScoped<IVacancyDetailsService, VacancyDetailsManager>();
             services.AddScoped<IVacancyDetailsRepository, VacancyDetailRepository>();
 
+            services.AddScoped<IGenericRepository<VacancyDetail>, GenericRepository<VacancyDetail>>();
+
             services.AddScoped<IVacancyService, VacancyManager>();
             services.AddScoped<IVacancyRepository, VacancyRepository>();
 

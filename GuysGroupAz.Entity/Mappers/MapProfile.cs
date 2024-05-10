@@ -14,6 +14,7 @@ using GuysGroupAz.Entity.DTOs.SendMessage;
 using GuysGroupAz.Entity.DTOs.Service;
 using GuysGroupAz.Entity.DTOs.Subcribe;
 using GuysGroupAz.Entity.DTOs.Teacher;
+using GuysGroupAz.Entity.DTOs.Vacancy;
 using GuysGroupAz.Entity.DTOs.VacancyDescription;
 using GuysGroupAz.Entity.DTOs.VacancyDetail;
 using GuysGroupAz.Entity.Models;
@@ -95,6 +96,10 @@ namespace GuysGroupAz.Entity.Mappers
             CreateMap<VacancyDetailPostDTO, VacancyDetail>()
                 .ForMember(b => b.VacancyDescriptions, opt => opt.Ignore());
             CreateMap<VacancyDetail, VacancyDetailGetDTO>().ReverseMap();
+
+            CreateMap<VacancyPostDTO, Vacancy>()
+                .ForMember(b => b.VacancyDetails, opt => opt.Ignore());
+            CreateMap<Vacancy, VacancyGetDTO>().ReverseMap();
         }
     }
 }
