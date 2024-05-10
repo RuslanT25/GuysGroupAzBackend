@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using GuysGroupAz.Business.ManagerServices.Abstracts;
+using GuysGroupAz.Entity.DTOs.Blog;
 using GuysGroupAz.Entity.DTOs.Service;
 using GuysGroupAz.Entity.Models;
 using GuysGroupAz.Entity.Validations;
@@ -61,28 +62,30 @@ namespace GuysGroupAz.WebApi.Controllers
                 return BadRequest(validateResult.Errors.Select(x => x.ErrorMessage).ToList());
             }
 
-            await _serviceService.AddAsync(service);
+            await _serviceService.AddServiceWithQuestionsAsync(service, model.QuestionIds);
             return Ok(service);
         }
 
-        [HttpPut("update")]
-        public async Task<IActionResult> Update([FromForm] ServiceGetDTO model)
+        [HttpPut("update/{id}")]
+        public async Task<ActionResult<BlogGetDTO>> UpdateAsync(int id, [FromForm] ServicePostDTO model)
         {
-            var service = await _serviceService.GetByIdAsync(model.Id);
-            if (service is null)
+            if (model is null)
             {
-                return NotFound();
+                return BadRequest();
             }
 
-            service = _mapper.Map<Service>(model);
+            var service = _mapper.Map<Service>(model);
+
             var validateResult = await _serviceValidation.ValidateAsync(service);
             if (!validateResult.IsValid)
             {
                 return BadRequest(validateResult.Errors.Select(x => x.ErrorMessage).ToList());
             }
 
-            _serviceService.Update(service);
-            return NoContent();
+            await _serviceService.UpdateServiceWithQuestionsAsync(id, service, model.QuestionIds);
+
+            var serviceDto = _mapper.Map<ServiceGetDTO>(service);
+            return Ok(serviceDto);
         }
 
         [HttpDelete("delete/{id}")]

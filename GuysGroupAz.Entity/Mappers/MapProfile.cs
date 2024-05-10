@@ -34,7 +34,8 @@ namespace GuysGroupAz.Entity.Mappers
             CreateMap<Contact, ContactPostDTO>().ReverseMap();
             CreateMap<Contact, ContactGetDTO>().ReverseMap();
 
-            CreateMap<Service, ServicePostDTO>().ReverseMap();
+            CreateMap<ServicePostDTO, Service>()
+                .ForMember(b => b.Questions, opt => opt.Ignore());
             CreateMap<Service, ServiceGetDTO>().ReverseMap();
 
             CreateMap<SendMessage, SendMessagePostDTO>().ReverseMap();
