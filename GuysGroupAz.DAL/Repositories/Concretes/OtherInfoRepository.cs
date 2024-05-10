@@ -20,7 +20,11 @@ namespace GuysGroupAz.DAL.Repositories.Concretes
 
         public override async Task<List<OtherInfo>> GetAllAsync()
         {
-            return await _context.OtherInfos.Include(b => b.OtherInfoDescriptions).Where(x => x.DeletedAt == null).AsNoTracking().ToListAsync();
+            return await _context.OtherInfos
+                .Include(b => b.OtherInfoDescriptions.Where(x => x.DeletedAt == null))
+                .Where(x => x.DeletedAt == null)
+                .AsNoTracking()
+                .ToListAsync();
         }
 
         public async Task<OtherInfo> GetByIdEagerAsync(int id)

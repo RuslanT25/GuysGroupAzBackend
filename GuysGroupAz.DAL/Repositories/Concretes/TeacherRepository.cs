@@ -20,7 +20,11 @@ namespace GuysGroupAz.DAL.Repositories.Concretes
 
         public override async Task<List<Teacher>> GetAllAsync()
         {
-            return await _context.Teachers.Include(b => b.Course).Where(x => x.DeletedAt == null).AsNoTracking().ToListAsync();
+            return await _context.Teachers
+                .Include(b => b.Course)
+                .Where(x => x.DeletedAt == null)
+                .AsNoTracking()
+                .ToListAsync();
         }
 
         public async Task<Teacher> GetByIdEagerAsync(int id)

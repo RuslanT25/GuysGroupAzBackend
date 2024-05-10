@@ -15,6 +15,7 @@ using GuysGroupAz.Entity.DTOs.Service;
 using GuysGroupAz.Entity.DTOs.Subcribe;
 using GuysGroupAz.Entity.DTOs.Teacher;
 using GuysGroupAz.Entity.DTOs.VacancyDescription;
+using GuysGroupAz.Entity.DTOs.VacancyDetail;
 using GuysGroupAz.Entity.Models;
 using System;
 using System.Collections.Generic;
@@ -57,7 +58,7 @@ namespace GuysGroupAz.Entity.Mappers
                 .ForMember(dto => dto.Image, opt => opt.MapFrom(x => "https://localhost:7142/uploads/photos/newsimages/" + x.Image)).ReverseMap();
 
             CreateMap<NewsPostDTO, News>()
-           .ForMember(b => b.NewsImages, opt => opt.Ignore());
+                .ForMember(b => b.NewsImages, opt => opt.Ignore());
             CreateMap<News, NewsGetDTO>()
                 .ForMember(dto => dto.CoverImage, opt => opt.MapFrom(x => "https://localhost:7142/uploads/photos/news/" + x.CoverImage)).ReverseMap();
 
@@ -90,6 +91,10 @@ namespace GuysGroupAz.Entity.Mappers
 
             CreateMap<VacancyDescription, VacancyDescriptionGetDTO>().ReverseMap();
             CreateMap<VacancyDescription, VacancyDescriptionPostDTO>().ReverseMap();
+
+            CreateMap<VacancyDetailPostDTO, VacancyDetail>()
+                .ForMember(b => b.VacancyDescriptions, opt => opt.Ignore());
+            CreateMap<VacancyDetail, VacancyDetailGetDTO>().ReverseMap();
         }
     }
 }
